@@ -1,6 +1,6 @@
 # Pizza Dashboard
 
-Author: Ratinto
+Author: Ritesh Kumar
 
 ## Overview
 
