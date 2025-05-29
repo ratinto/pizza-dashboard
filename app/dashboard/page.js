@@ -24,7 +24,7 @@ export default function Dashboard() {
           <span className="ml-auto px-3 py-1 text-xs rounded-full bg-green-100 text-green-700 border border-green-200">Online</span>
         </div>
         <div className="text-gray-600 mb-6 text-base">
-          Welcome back to your pizza orders dashboard. Here's what's happening today.
+          Welcome back to your pizza orders dashboard. Here&apos;s what&apos;s happening today.
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
           {dashboardStats.map((stat) => (
