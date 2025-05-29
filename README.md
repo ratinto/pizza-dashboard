@@ -1,24 +1,17 @@
-# 🍕 Pizza Dashboard
+# Pizza Dashboard
 
-A modern dashboard app for managing pizza orders, analytics, and more. Built with **Next.js App Router**, **Tailwind CSS**, and **NextAuth**.
+Author: Ratinto
 
-## Features
+## Overview
 
-- **Dashboard**: Quick overview of your pizza business.
-- **Pizza Orders**: List and manage customer orders.
-- **Analytics**: Visual insights (top customers, popular pizzas, trends).
-- **Notifications**: View recent activity and alerts.
-- **Settings**: Profile and appearance (with global dark mode).
-- **Authentication**: Google sign-in via NextAuth.
-- **Responsive**: Works beautifully on mobile & desktop.
-- **Loading Indicators**: Smooth experience during navigation and async actions.
+Pizza Dashboard is a modern web application for managing pizza orders, analytics, and user authentication. Built with Next.js (App Router), NextAuth.js for authentication (Google OAuth), and styled using Tailwind CSS. The dashboard provides a clean, responsive interface for tracking orders, viewing analytics, and more.
 
-## Getting Started
+## Setup & Local Development
 
-### 1. Clone the repo
+### 1. Clone the repository
 
 ```bash
-git clone https://github.com/yourusername/pizza-dashboard.git
+git clone https://github.com/ratinto/pizza-dashboard.git
 cd pizza-dashboard
 ```
 
@@ -28,22 +21,22 @@ cd pizza-dashboard
 npm install
 ```
 
-### 3. Configure environment
+### 3. Configure Environment Variables
 
-Copy `.env.example` to `.env.local` and fill in your values (Google OAuth, etc):
-
-```bash
-cp .env.example .env.local
-```
-
-Example:
+Create a `.env.local` file in the root directory.  
+You will need Google OAuth credentials. Do NOT commit your secret to the repository.
 
 ```
+# .env.local
+GOOGLE_CLIENT_ID=your-google-oauth-client-id
+GOOGLE_CLIENT_SECRET=your-google-oauth-client-secret
 NEXTAUTH_URL=http://localhost:3000
-GOOGLE_CLIENT_ID=your-google-client-id
-GOOGLE_CLIENT_SECRET=your-google-client-secret
-
+NEXTAUTH_SECRET=your-random-secret
 ```
+
+- You can generate `NEXTAUTH_SECRET` using:  
+  `openssl rand -base64 32`
+- Get your Google OAuth credentials from [Google Cloud Console](https://console.cloud.google.com/apis/credentials) and set authorized redirect URI to `http://localhost:3000/api/auth/callback/google`.
 
 ### 4. Run the development server
 
@@ -51,33 +44,26 @@ GOOGLE_CLIENT_SECRET=your-google-client-secret
 npm run dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) and login with Google.
+Visit [http://localhost:3000](http://localhost:3000) to use the app.
 
-## Project Structure
+## Assumptions & Challenges
 
+- Assumes the developer has Google Cloud access to create OAuth credentials.
+- No real database integration; order and analytics data are mocked for demonstration.
+- Main challenge: Ensuring proper environment variable handling for secure OAuth configuration.
 
-## Customization
+## Third-Party Libraries Used
 
-- **Dark Mode**: Toggle from settings, persists across sessions.
-- **Add Pages**: Copy a folder in `app/` to create new sections.
-- **Change Theme**: Adjust Tailwind config or component classes.
+Beyond Next.js, NextAuth.js, and Tailwind CSS:
 
-## Deployment
+- **react-icons** — for iconography
+- **clsx** — for conditional classNames (optional, if present in project)
+- **date-fns** — for date formatting (optional, if present)
 
-This app is ready for [Vercel](https://vercel.com/) deployment (or any Next.js host):
-
-```bash
-# Build for production
-npm run build
-
-# Start
-npm start
-```
-
-## License
-
-MIT
+*(Check `package.json` for exact versions and other possible dependencies.)*
 
 ---
 
-**Made for rapid pizza business management. Enjoy!**
+**Note:**  
+Never commit your real OAuth credentials or secrets to the repository.  
+Always use environment variables for sensitive configuration.
